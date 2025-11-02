@@ -14,7 +14,7 @@
     }
 
     body {
-      background-color: #FF00c8; /* Pink background */
+      background-color: #FFA500; /* Orange background */
       color: #333;
     }
 
@@ -26,7 +26,7 @@
 
     /* Header */
     header {
-      background-color: #FF00c8;
+      background-color: #FF8C00; /* Slightly darker orange */
       padding: 20px 0;
       margin-bottom: 20px;
     }
@@ -56,7 +56,7 @@
     header nav a:hover,
     header nav a.active {
       background-color: white;
-      color: #FF00c8;
+      color: #FF8C00;
       border-radius: 5px;
     }
 
@@ -94,7 +94,7 @@
 
     .product h3 {
       margin: 10px 0;
-      color: #FF00c8;
+      color: #FF8C00;
     }
 
     .product p {
@@ -103,7 +103,7 @@
     }
 
     .product button {
-      background-color: #FF00c8;
+      background-color: #FF8C00;
       color: white;
       border: none;
       padding: 10px 15px;
@@ -124,10 +124,11 @@
       box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     }
 
+    /* Optional: Footer */
     footer {
       text-align: center;
       padding: 15px 0;
-      background-color: #FF00c8;
+      background-color: #FF8C00;
       color: white;
       font-weight: bold;
     }
@@ -142,7 +143,7 @@
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="products.html" class="active">Products</a>
-        <a href="basket.html">🛒 Basket</a>
+          <a href="basket.html">🛒 Basket</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
@@ -150,98 +151,144 @@
 
   <main class="products-grid container">
     <div class="product">
-      <img src="img2.jpeg.jpg" alt="bag">
+      <img src="img2.jpeg" alt="bag">
       <h3>Bag</h3>
       <p>Price: ₹1200</p>
-      <button class="add-to-basket" 
-          data-name="Bag" 
+    <button class="add-to-basket" 
+          data-name="bag" 
           data-price="1200" 
           data-image="img2.jpeg">
-        Add to Basket
-      </button>
+    Add to Basket
+  </button>
     </div>
 
     <div class="product">
-      <img src="img3.jpeg.jpg" alt="saree">
+      <img src="img3.jpeg" alt="saree bulk">
       <h3>Each Saree</h3>
       <p>Price: ₹1500</p>
       <button class="add-to-basket" 
-          data-name="Saree" 
+          data-name="Saree bulk" 
           data-price="1500" 
           data-image="img3.jpeg">
-        Add to Basket
-      </button>
+    Add to Basket
+  </button>
     </div>
 
     <div class="product">
-      <img src="img4.jpeg.jpg" alt="saree">
-      <h3>Saree</h3>
+      <img src="img4.jpeg" alt="saree">
+      <h3>saree</h3>
       <p>Price: ₹5500</p>
       <button class="add-to-basket" 
-          data-name="Saree" 
+          data-name="saree" 
           data-price="5500" 
           data-image="img4.jpeg">
-        Add to Basket
-      </button>
+    Add to Basket
+  </button>
     </div>
 
     <div class="product">
       <img src="img5.webp" alt="saree">
-      <h3>Saree</h3>
+      <h3>saree</h3>
       <p>Price: ₹6500</p>
-      <button class="add-to-basket" 
-          data-name="Saree" 
+     <button class="add-to-basket" 
+          data-name="saree" 
           data-price="6500" 
           data-image="img5.webp">
-        Add to Basket
-      </button>
+    Add to Basket
+  </button>
     </div>
+      <div class="product">
+      <img src="img6.jpg" alt="shirt">
+      <h3>shirt</h3>
+      <p>Price: ₹1000</p>
+     <button class="add-to-basket" 
+          data-name="shirt" 
+          data-price="1000" 
+          data-image="img6.jpg">
+    Add to Basket
+  </button>
+    </div>
+      <div class="product">
+      <img src="img7.jpg" alt="shirt handloom">
+      <h3>Shirt</h3>
+      <p>Price: ₹900</p>
+     <button class="add-to-basket" 
+          data-name="shirt handloom" 
+          data-price="900" 
+          data-image="img7.jpg">
+    Add to Basket
+  </button>
+    </div>
+      <div class="product">
+      <img src="img8.jpeg" alt="slippers">
+      <h3>slippers</h3>
+      <p>Price: ₹700</p>
+     <button class="add-to-basket" 
+          data-name="slippers" 
+          data-price="700" 
+          data-image="img8.jpeg">
+    Add to Basket
+  </button>
+    </div>
+      <div class="product">
+      <img src="img10.jpeg" alt="slipper">
+      <h3>slipper</h3>
+      <p>Price: ₹600</p>
+     <button class="add-to-basket" 
+          data-name="slipper" 
+          data-price="600" 
+          data-image="img10.jpeg">
+    Add to Basket
+  </button>
+    </div>
+    <!-- Add more products as needed -->
   </main>
 
   <footer>
     <p>&copy; 2025 Handloom Fashion. All Rights Reserved.</p>
   </footer>
 
-  <script>
-    const addButtons = document.querySelectorAll('.add-to-basket');
+ <script>
+const addButtons = document.querySelectorAll('.add-to-basket');
 
-    addButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const product = {
-          name: button.dataset.name,
-          price: parseInt(button.dataset.price),
-          image: button.dataset.image,
-          quantity: 1
-        };
+addButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const product = {
+      name: button.dataset.name,
+      price: parseInt(button.dataset.price),
+      image: button.dataset.image,
+      quantity: 1
+    };
 
-        let basket = JSON.parse(localStorage.getItem('basket')) || [];
+    // Get current basket from localStorage
+    let basket = JSON.parse(localStorage.getItem('basket')) || [];
 
-        const existing = basket.find(p => p.name === product.name);
-        if (existing) {
-          existing.quantity += 1;
-        } else {
-          basket.push(product);
-        }
+    // Check if product already exists
+    const existing = basket.find(p => p.name === product.name);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      basket.push(product);
+    }
 
-        localStorage.setItem('basket', JSON.stringify(basket));
-        alert(`${product.name} added to basket!`);
-      });
-    });
-  </script>
+    localStorage.setItem('basket', JSON.stringify(basket));
+    alert(`${product.name} added to basket!`);
+  });
+});
+</script>
 
-  <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/6903969ce75723194d8e6d61/1j8r08lqh';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
-  <!--End of Tawk.to Script-->
-
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/68d61e4927d62b194f180193/1j626ck0e';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>
