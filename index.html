@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Handloom Heritage</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ffb347, #e07b39);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .floating {
+      position: absolute;
+      font-size: 22px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.25);
+      animation: float 18s linear infinite;
+      user-select: none;
+    }
+    @keyframes float {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(200px, -150px); }
+      50% { transform: translate(-100px, 150px); }
+      75% { transform: translate(-200px, -100px); }
+      100% { transform: translate(0, 0); }
+    }
+    .floating:nth-child(1) { top: 10%; left: 20%; animation-duration: 22s;}
+    .floating:nth-child(2) { top: 60%; left: 10%; animation-duration: 26s;}
+    .floating:nth-child(3) { top: 30%; left: 70%; animation-duration: 20s;}
+    .floating:nth-child(4) { top: 80%; left: 60%; animation-duration: 24s;}
+    .floating:nth-child(5) { top: 40%; left: 40%; animation-duration: 28s;}
+    .login-container {
+      position: relative;
+      background-color: #fff8ef;
+      padding: 40px 35px;
+      border-radius: 15px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+      width: 350px;
+      text-align: center;
+      z-index: 10;
+    }
+    h1 {
+      color: #b34700;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+    label {
+      display: block;
+      text-align: left;
+      font-size: 14px;
+      color: #5a2f00;
+      margin-top: 15px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #d9a06a;
+      border-radius: 8px;
+      margin-top: 5px;
+    }
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #b34700;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover { background-color: #e07b39; }
+    .links {
+      margin-top: 15px;
+    }
+    .links a {
+      color: #b34700;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="floating">🧵 Handloom</div>
+  <div class="floating">🧵 Handloom</div>
+  <div class="floating">🧵 Handloom</div>
+  <div class="floating">🧵 Handloom</div>
+  <div class="floating">🧵 Handloom</div>
+
+  <div class="login-container">
+    <h1>Login</h1>
+    <form id="loginForm">
+      <label>Email</label>
+      <input type="email" id="email" placeholder="example@xhandloom.com" required />
+
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Enter password" required />
+
+      <button type="submit">Login</button>
+    </form>
+    <div class="links">
+      Don't have an account? <a href="signup.html">Sign up here</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const storedUser = JSON.parse(localStorage.getItem("handloomUser"));
+
+      if (!storedUser) {
+        alert("❌ Account doesn't exist. Please sign up first.");
+        return;
+      }
+
+      if (storedUser.email === email && storedUser.password === password) {
+        alert("✅ Login successful! Welcome to Handloom Heritage.");
+        window.location.href = "home.html";
+      } else {
+        alert("❌ Invalid credentials or account doesn't exist.");
+      }
+    });
+  </script>
+</body>
+</html>
