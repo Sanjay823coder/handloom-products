@@ -66,6 +66,27 @@
       font-size: 1.2em;
     }
 
+    /* 🔍 Search bar styling */
+    .search-bar {
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    .search-bar input {
+      width: 60%;
+      padding: 10px;
+      border-radius: 25px;
+      border: 2px solid #FF8C00;
+      outline: none;
+      font-size: 1em;
+      transition: 0.3s;
+    }
+
+    .search-bar input:focus {
+      border-color: #e67300;
+      box-shadow: 0 0 8px rgba(230, 115, 0, 0.5);
+    }
+
     /* Products Grid */
     .products-grid {
       display: grid;
@@ -143,9 +164,14 @@
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="products.html" class="active">Products</a>
-          <a href="basket.html">🛒 Basket</a>
+        <a href="basket.html">🛒 Basket</a>
         <a href="contact.html">Contact</a>
       </nav>
+    </div>
+
+    <!-- 🔍 Added Search Bar -->
+    <div class="search-bar container">
+      <input type="text" id="searchInput" placeholder="Search products...">
     </div>
   </header>
 
@@ -154,12 +180,12 @@
       <img src="img2.jpeg" alt="bag">
       <h3>Bag</h3>
       <p>Price: ₹1200</p>
-    <button class="add-to-basket" 
+      <button class="add-to-basket" 
           data-name="bag" 
           data-price="1200" 
           data-image="img2.jpeg">
-    Add to Basket
-  </button>
+      Add to Basket
+    </button>
     </div>
 
     <div class="product">
@@ -170,25 +196,25 @@
           data-name="Saree bulk" 
           data-price="1500" 
           data-image="img3.jpeg">
-    Add to Basket
-  </button>
+      Add to Basket
+    </button>
     </div>
 
     <div class="product">
       <img src="img4.jpeg" alt="saree">
-      <h3>saree</h3>
+      <h3>Saree</h3>
       <p>Price: ₹5500</p>
       <button class="add-to-basket" 
           data-name="saree" 
           data-price="5500" 
           data-image="img4.jpeg">
-    Add to Basket
-  </button>
+      Add to Basket
+    </button>
     </div>
 
     <div class="product">
       <img src="img5.webp" alt="saree">
-      <h3>saree</h3>
+      <h3>Saree</h3>
       <p>Price: ₹6500</p>
      <button class="add-to-basket" 
           data-name="saree" 
@@ -199,7 +225,7 @@
     </div>
       <div class="product">
       <img src="img6.jpg" alt="shirt">
-      <h3>shirt</h3>
+      <h3>Shirt</h3>
       <p>Price: ₹1000</p>
      <button class="add-to-basket" 
           data-name="shirt" 
@@ -210,7 +236,7 @@
     </div>
       <div class="product">
       <img src="img7.jpg" alt="shirt handloom">
-      <h3>Shirt</h3>
+      <h3>Shirt Handloom</h3>
       <p>Price: ₹900</p>
      <button class="add-to-basket" 
           data-name="shirt handloom" 
@@ -221,7 +247,7 @@
     </div>
       <div class="product">
       <img src="img8.jpeg" alt="slippers">
-      <h3>slippers</h3>
+      <h3>Slippers</h3>
       <p>Price: ₹700</p>
      <button class="add-to-basket" 
           data-name="slippers" 
@@ -232,7 +258,7 @@
     </div>
       <div class="product">
       <img src="img10.jpeg" alt="slipper">
-      <h3>slipper</h3>
+      <h3>Slipper</h3>
       <p>Price: ₹600</p>
      <button class="add-to-basket" 
           data-name="slipper" 
@@ -241,7 +267,6 @@
     Add to Basket
   </button>
     </div>
-    <!-- Add more products as needed -->
   </main>
 
   <footer>
@@ -273,6 +298,18 @@ addButtons.forEach(button => {
 
     localStorage.setItem('basket', JSON.stringify(basket));
     alert(`${product.name} added to basket!`);
+  });
+});
+
+// 🔍 Search filter script added
+const searchInput = document.getElementById('searchInput');
+const products = document.querySelectorAll('.product');
+
+searchInput.addEventListener('keyup', () => {
+  const searchValue = searchInput.value.toLowerCase();
+  products.forEach(product => {
+    const name = product.querySelector('h3').textContent.toLowerCase();
+    product.style.display = name.includes(searchValue) ? 'block' : 'none';
   });
 });
 </script>
